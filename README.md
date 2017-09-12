@@ -1,11 +1,24 @@
-# spotyfi
-Database practice
+# README
 
-##Goals
-*build a ruby on rails app that has the essential functionality of spotify
-*The app should have:
-  * a Database that contains information about songs/artists
-  *an interface linked to this Database for navigating it
-*the user should be able to:
-  *search by artists, ,genres, song names, and playlist name.
-  *create playlists
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
