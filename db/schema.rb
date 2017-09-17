@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "song", primary_key: "songid", id: :integer, default: nil, force: :cascade do |t|
+  create_table "songs", id: :integer, default: nil, force: :cascade do |t|
     t.text "name", null: false
     t.text "artist", null: false
     t.text "genre", null: false
