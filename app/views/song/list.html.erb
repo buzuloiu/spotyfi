@@ -1,0 +1,13 @@
+<% if @songs.blank? %>
+<p>There are no songs to display. Add some songs</p>
+<% else %>
+<p> here are the songs we have </p>
+
+<ul id = "books">
+  <% @books.each do |c| %>
+  <li><%= link_to c.name, {:action => 'show',:id => c.id} -%></li>
+  <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Song", {:action => 'new' }%></p>
