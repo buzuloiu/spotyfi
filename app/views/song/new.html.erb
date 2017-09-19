@@ -1,0 +1,16 @@
+<h1>Add new song</h>
+
+  <%= form_tag :action => "create" do %>
+  <p><label for = "song_name">Name</label>:
+  <%= text_field 'songs', 'name' %></p>
+
+  <p><label for = "artist">Artist</label>:
+    <%= text_field 'artists', 'name'%></p>
+
+    <p><label for = "genre">Artist</label>:
+      <%= text_field 'genres', 'name' %></p>
+    <%= submit_tag "Create" %>
+
+    <% end -%>
+
+<%= link_to 'Back', {:action => 'list'} %>

@@ -3,8 +3,8 @@
 <% else %>
 <p> here are the songs we have </p>
 
-<ul id = "books">
-  <% @books.each do |c| %>
+<ul id = "songs">
+  <% @songs.each do |c| %>
   <li><%= link_to c.name, {:action => 'show',:id => c.id} -%></li>
   <% end %>
 </ul>
