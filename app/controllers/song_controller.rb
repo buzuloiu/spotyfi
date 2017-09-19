@@ -4,12 +4,11 @@ class SongController < ApplicationController
      end
 
      def show
-       @songs = Song.find(params[:id])
+       @song = Song.find(params[:id])
      end
 
      def new
        @songs = Song.new
-       @genres = Genre.all
      end
 
      def create
@@ -19,6 +18,7 @@ class SongController < ApplicationController
          redirect_to :action => 'list'
        else
          @genres = Genre.all
+         @artists = Artist.all
          render :action => 'new'
        end
      end
