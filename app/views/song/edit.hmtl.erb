@@ -1,9 +1,0 @@
-<h1> Edit Song Details </h1>
-
-<%= form_for ( @song, :url =>{:action => "update", :id =>@song.id}) do |f| %>
-
-<p>Name: <%= f.text_field 'name' %></p>
-<%= f.submit "Save changes" %>
-<% end %>
-
-<%= link_to 'Back', {:action => 'list' } %>
