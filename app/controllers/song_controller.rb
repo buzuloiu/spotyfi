@@ -1,4 +1,9 @@
 class SongController < ApplicationController
+
+  layout 'standard'
+
+
+
   def list
     @songs = Song.all
      end
