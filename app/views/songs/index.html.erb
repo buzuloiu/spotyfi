@@ -2,6 +2,10 @@
 
 <h1>Songs</h1>
 
+<h2>Stream with HTML5</h2>
+<section id="audio">
+</section>
+
 <table>
   <thead>
     <tr>
@@ -12,6 +16,7 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
+        <td><%= link_to "Play", download_url_for(song), :class => "html5" %></td>
         <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
