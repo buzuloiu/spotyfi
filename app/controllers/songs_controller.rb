@@ -4,9 +4,12 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    s3 = Aws::S3::Resource.new
-    song_bucket = s3.bucket(ENV['SONG_BUCKET_NAME'])
-    @songs = song_bucket.objects
+    s3 = Aws::S3::Resource.new(region: ENV['AWS_REGION'])
+  #  song_bucket = s3.bucket(ENV['SONG_BUCKET_NAME'])
+    @songs = s3.bucket(ENV['SONG_BUCKET_NAME']).objects.object
+    #@song = s3.bucket(ENV['SONG_BUCKET_NAME']).object(1)
+
+
   end
 
   # GET /songs/1
@@ -72,5 +75,8 @@ class SongsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
       params.fetch(:song, {})
+    end
+
+    def download_url_for
     end
 end
