@@ -4,7 +4,9 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = AWS::S3::Bucket.find(BUCKET).objects
+    @s3 = Aws::S3::Resource.new
+    #SONG_BUCKET = s3.buckets[ENV['SONG_BUCKET_NAME']]
+    @songs = s3.find(ENV['SONG_BUCKET_NAME']).objects
   end
 
   # GET /songs/1
