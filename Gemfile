@@ -30,15 +30,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #use aws-sdk for accessing S3 and CDN
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 3'
 #use figaro for environment variables
 gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #use carrierwave for uploading/downloading from s3
-gem 'carrierwave-aws'
+#gem 'carrierwave-aws'
 #fog is used with carrierwave for s3
-gem 'fog-aws'
+#gem 'fog-aws'
 
 
 group :development, :test do
