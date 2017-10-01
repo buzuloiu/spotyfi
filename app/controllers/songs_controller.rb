@@ -32,8 +32,15 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.new(song_params)
 
+
+    @song = Song.new(song_params)
+    uploader =SongUploader.new
+    file = params[:file]
+    puts(file)
+    uploader.store!(file)
+    @song.plays=0
+    @song.file_path=uploader.download_url(file)
     respond_to do |format|
       if @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
@@ -77,7 +84,9 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.fetch(:song, {})
+      #params.fetch(:song, {})
+      params.require(:song).permit(:title, :artist_id, :genre_id, :album_id, :file_path)
+
     end
 
     def download_url_for

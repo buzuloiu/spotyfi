@@ -1,24 +1,32 @@
 <h1>New Song</h1>
+<%= form_for @song do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
 
-<%= form_tag :action => 'create' do %>
+  <div>
+    <%= f.label :artist_id %>
+    <%= f.text_area :artist_id %>
+  </div>
 
-<p><label for = "song_title">Title</label>:
-<%= text_field 'songs', 'title' %></p>
+  <div>
+    <%= f.label :album_id %>
+    <%= f.text_area :album_id %>
+  </div>
 
-<p><label for = "song_artist_id">Artist</label>:
-<%= text_field 'songs', 'artist_id' %></p>
+  <div>
+    <%= f.label :genre_id %>
+    <%= f.text_area :genre_id %>
+  </div>
 
-<p><label for = "song_album_id">Album</label>:
-<%= text_field 'songs', 'album_id' %></p>
 
-<p><label for = "song_genre_id">Genre</label>:
-<%= text_field 'songs', 'genre_id' %></p>
+  <div>
+    <%= f.label :file %>
+    <%= file_field :file %>
+  </div>
 
-<p><label for = "song_plays">Plays</label>:
-<%= text_field 'songs', 'plays' %></p>
-
-<%#= render 'form', song: @song %>
-<%= submit_tag "Create" %>
+  <%= f.submit %>
 
 <% end -%>
 
