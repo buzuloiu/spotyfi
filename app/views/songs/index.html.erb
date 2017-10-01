@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Songs</h1>
+<h1>Spotyfi</h1>
 
-<h2>Stream with HTML5</h2>
+<h2>Listen</h2>
 <section id="audio">
 </section>
 
@@ -17,7 +17,7 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= song.titleize %></td>
-        <td><%= link_to 'Play', song %></td>
+        <td><%= link_to 'Show', song %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
         <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

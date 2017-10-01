@@ -36,9 +36,9 @@ gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #use carrierwave for uploading/downloading from s3
-#gem 'carrierwave-aws'
+gem 'carrierwave'
 #fog is used with carrierwave for s3
-#gem 'fog-aws'
+gem 'fog-aws'
 
 
 group :development, :test do
