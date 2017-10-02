@@ -1,3 +1,3 @@
 class Song < ApplicationRecord
-  mount_uploader :song, SongUploader
+  mount_uploader :file, SongUploader
 end
