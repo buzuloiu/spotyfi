@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170919205243) do
     t.integer "album_id", null: false
     t.bigint "plays"
     t.integer "genre_id", null: false
-    t.text "file_path", null:false
+    t.text "file", null:false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

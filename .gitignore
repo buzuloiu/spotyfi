@@ -19,6 +19,7 @@
 .byebug_history
 
 /music_repo
+/public/uploads
 
 # Ignore application configuration
 /config/application.yml

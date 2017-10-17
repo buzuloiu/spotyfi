@@ -2,21 +2,21 @@
 
 <%= form_tag :action => 'create' do %>
 <p><label for = "song_title">Title</label>:
-<%= text_field 'songs', 'title' %></p>
+<%= text_field 'song', 'title' %></p>
 
 <p><label for = "song_artist_id">Artis</label>:
-<%= text_field 'songs', 'artist_id' %></p>
+<%= text_field 'song', 'artist_id' %></p>
 
 <p><label for = "song_album_id">Album</label>:
-<%= text_field 'songs', 'album_id' %></p>
+<%= text_field 'song', 'album_id' %></p>
 
 <p><label for = "song_genre_id">Genre</label><br/>
-<%= text_field 'songs', 'genre_id' %></p>
+<%= text_field 'song', 'genre_id' %></p>
 
 <p><label for = "song_file">File</label><br/>
 <%= file_field_tag :file %>
 
-<%= submit_tag "Create Song" %>
+<%= submit_tag "Create" %>
 
 <% end -%>
 
