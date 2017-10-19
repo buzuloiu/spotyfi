@@ -32,11 +32,17 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
+    puts params.fetch(:song, {})
 
-    @song = Song.new(song_params)
     uploader = SongUploader.new
     file = params[:file]
     uploader.store!(file)
+    puts "params are:"
+    puts song_params
+    puts file
+    puts params.fetch(:song, {})
+
+    @song = Song.new(song_params)
     @song.plays = 0
     @song.file= file.url
     respond_to do |format|
