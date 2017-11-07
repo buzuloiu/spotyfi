@@ -6,11 +6,11 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.create(name:"Example User", email:"User@Example.com")
+    @user = User.new()
   end
 
   test "should be valid" do
-    assert @user.valid?
+    assert User.create.valid?
   end
 
 end

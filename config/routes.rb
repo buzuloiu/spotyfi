@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
-  resources :songs
+  resources :songs,:users
   root to: 'songs#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'song/list'
@@ -14,4 +13,6 @@ Rails.application.routes.draw do
   get 'song/delete'
   get 'song/update'
   get 'book/show_subjects'
+  get 'users/new'
+
 end
