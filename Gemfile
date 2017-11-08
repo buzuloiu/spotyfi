@@ -39,6 +39,7 @@ gem 'figaro'
 gem 'carrierwave-aws'
 #fog is used with carrierwave for s3
 #gem 'fog-aws'
+gem 'bcrypt'
 
 
 group :development, :test do
