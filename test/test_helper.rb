@@ -4,7 +4,6 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :users
-  fixtures :songs
     self.set_fixture_class users: User
 
 
