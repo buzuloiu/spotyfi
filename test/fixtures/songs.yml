@@ -9,3 +9,10 @@ one: {}
 #
 two: {}
 # column: value
+valid:
+  title: "test"
+  artist_id: 1
+  album_id: 1
+  plays: 1
+  genre_id: 1
+  file: "afile"

@@ -4,3 +4,6 @@ end
 
 class Song <ApplicationRecord
 end
+
+class User <ApplicationRecord
+end

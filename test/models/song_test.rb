@@ -5,11 +5,12 @@ class SongTest < ActiveSupport::TestCase
     # assert true
    #end
    def setup
-     @song = Song.new(title:"test",artist_id:1,album_id:1,plays:1,genre_id:1,file:"afile")
+     @song = songs(title:"test",artist_id:1,album_id:1,plays:1,genre_id:1,file:"afile")
    end
 
    test "should be valid" do
-     assert @song.isvalid?
+     @song = Song.new(title:"test",artist_id:1,album_id:1,plays:1,genre_id:1,file:"afile")
+     assert @song.valid?
    end
 
 end

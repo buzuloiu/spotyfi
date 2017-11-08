@@ -3,7 +3,10 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
+  fixtures :users
+  fixtures :songs
+    self.set_fixture_class users: User
+
 
   # Add more helper methods to be used by all tests here...
 end
