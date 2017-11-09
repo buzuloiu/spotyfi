@@ -12,7 +12,11 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+
 //= require_tree .
+
+
 $(document).ready(function() {
     var audioSection = $('section#audio');
     $('a.html5').click(function() {
