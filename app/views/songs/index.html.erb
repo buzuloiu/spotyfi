@@ -1,3 +1,6 @@
+<div class="clear"></div>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Spotyfi</h1>
@@ -6,6 +9,8 @@
   <h2>Listen</h2>
   <section id="audio">
     No song is currently playing
+
+
   </section>
 </section>
 <section id="main">
@@ -21,10 +26,7 @@
     <% @songs.each do |song| %>
       <tr>
         <td><%= song.titleize %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "HTML5 Audio", song, :class => "play_song" %></td>
+        <td><%= link_to "Play", song, :class => "play_song" %></td>
 
       </tr>
     <% end %>

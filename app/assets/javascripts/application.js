@@ -13,15 +13,14 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
-
+//= require jquery_ujs
 //= require_tree .
-
-
 $(document).ready(function() {
     var audioSection = $('section#audio');
-    $('a.html5').click(function() {
+    $('a.play_song').click(function() {
 
         var audio = $('<audio>', {
+              autoPlay : 'autoplay',
              controls : 'controls'
         });
 
