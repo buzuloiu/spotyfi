@@ -25,8 +25,8 @@
   <tbody>
     <% @songs.each do |song| %>
       <tr>
-        <td><%= song.titleize %></td>
-        <td><%= link_to "Play", song, :class => "play_song" %></td>
+        <td><%= song.key %></td>
+        <td><%= link_to "Play", song.public_url(), :class => "play_song" %></td>
 
       </tr>
     <% end %>
