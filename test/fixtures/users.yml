@@ -12,5 +12,5 @@ two: {}
 valid:
   name: John
   email: john@example.com
-  password: password
-  password_confirmation: password
+  #password: password
+  #password_confirmation: password
