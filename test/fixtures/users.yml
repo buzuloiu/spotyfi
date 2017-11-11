@@ -5,12 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {}
+  #name: John
+  #email: john@example.com
+  #password: password
+  #password_confirmation: password
 # column: value
 #
 two: {}
 # column: value
-valid:
-  name: John
-  email: john@example.com
-  password: password
-  password_confirmation: password
