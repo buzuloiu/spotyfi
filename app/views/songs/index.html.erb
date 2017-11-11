@@ -3,10 +3,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Spotyfi</h1>
 <section id="sidebar">
 
-  <h2>Listen</h2>
+  <h1>Listen</h1>
   <section id="audio">
     No song is currently playing
 
@@ -23,10 +22,11 @@
   </thead>
 
   <tbody>
+    <h1>Songs</h1>
     <% @songs.each do |song| %>
       <tr>
         <td><%= song.key %></td>
-        <td><%= link_to "Play", song.public_url(), :class => "play_song" %></td>
+        <td><%= link_to "Play", song.public_url(), :class => "play_song btn btn-sm btn-primary" %></td>
 
       </tr>
     <% end %>
@@ -35,4 +35,4 @@
 </section>
 <br>
 
-<%= link_to 'New Song', new_song_path %>
+<%= link_to 'New Song', new_song_path, :class => "btn btn-lg btn-primary" %>
