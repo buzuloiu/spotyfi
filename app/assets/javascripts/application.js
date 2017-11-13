@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
