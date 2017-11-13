@@ -46,7 +46,7 @@ gem 'bcrypt'
 gem 'jquery-rails'
 
 gem 'bootstrap-sass'
-
+gem 'rails-controller-testing'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
