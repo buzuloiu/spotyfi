@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       #success! log the user in
       log_in(user)
-
       redirect_to current_user
     else
       #failure! display error popup
