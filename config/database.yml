@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: spotyfi_production
-  username: spotyfi
+  database: <%= ENV['SPOTYFI_PRODUCTION_DATABASE']
+  username: <%= ENV['SPOTYFI_PRODUCTION_USERNAME']
   password: <%= ENV['SPOTYFI_DATABASE_PASSWORD'] %>
