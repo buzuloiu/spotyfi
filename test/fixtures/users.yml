@@ -13,3 +13,8 @@ one: {}
 #
 two: {}
 # column: value
+
+paul:
+  name: paul example
+  email: test@musical.io
+  password_digest: <%= User.digest('password') %>

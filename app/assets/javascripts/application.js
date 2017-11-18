@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require bootstrap
+//= require jquery_ujs
+//= require jquery-ui
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require jquery_ujs
 //= require_tree .
 $(document).ready(function() {
     var audioSection = $('section#audio');
