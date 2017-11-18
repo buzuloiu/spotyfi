@@ -84,6 +84,8 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['SPOTYFI_PRODUCTION_DATABASE']
-  username: <%= ENV['SPOTYFI_PRODUCTION_USERNAME']
+  database: <%= ENV['SPOTYFI_PRODUCTION_DATABASE'] %>
+  username: <%= ENV['SPOTYFI_PRODUCTION_USERNAME'] %>
   password: <%= ENV['SPOTYFI_DATABASE_PASSWORD'] %>
+  host: ec2-54-243-107-66.compute-1.amazonaws.com
+  port: 5432
