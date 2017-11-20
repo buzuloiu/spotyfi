@@ -17,6 +17,8 @@ module SessionsHelper
       if (user && user.authenticated?(cookies[:remember_token]))
         log_in user
         @current_user = user
+      end
+    end
   end
 
   def logged_in?
@@ -31,5 +33,7 @@ module SessionsHelper
 
   def forget(user)
     user.forget
-    coo
+    cookies.delete(:remember_token)
+    cookies.delete(:user_id)
+  end
 end
