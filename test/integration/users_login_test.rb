@@ -7,6 +7,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:paul)
+    puts @user.name
   end
 
   test "login with invalid information" do
@@ -44,5 +45,18 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path,      count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
 
+  end
+
+  test "login with remember me" do
+    log_in_as(@user, remember_me: '1')
+    assert_not_empty cookies['remember_token']
+  end
+
+  test "login without remember_me" do
+    #log in and set cookie
+    log_in_as(@user, remember_me: '1')
+    #log in again to forget cookie
+    log_in_as(@user, remember_me: '0')
+    assert_empty cookies['remember_token']
   end
 end
