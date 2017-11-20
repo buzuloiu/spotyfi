@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       #success! log the user in
       log_in(user)
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      remember user
       redirect_to current_user
     else
       #failure! display error popup
