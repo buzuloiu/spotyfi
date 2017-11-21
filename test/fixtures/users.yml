@@ -18,3 +18,8 @@ paul:
   name: paul example
   email: test@musical.io
   password_digest: <%= User.digest('password') %>
+
+steve:
+  name: Steve Random
+  email: why@youcare.com
+  password_digest: <%= User.digest('password')%>
