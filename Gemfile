@@ -47,11 +47,15 @@ gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
 
-
 gem 'bootstrap-sass', '~> 3.3.7'
 
-
 gem 'rails-controller-testing'
+
+gem 'faker'
+
+gem 'will_paginate'
+
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
