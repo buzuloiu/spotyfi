@@ -1,4 +1,6 @@
-# README
+# README [![Build Status](https://travis-ci.org/buzuloiu/spotyfi.svg?branch=master)](https://travis-ci.org/buzuloiu/spotyfi)
+
+
 
 Real README coming soon to a repo near you
 
