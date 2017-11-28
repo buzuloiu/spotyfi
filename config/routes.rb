@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :songs, :users
+  resources :account_activations, only: [:edit]
   root to: 'sessions#new'
   #root to: 'songs#list'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
