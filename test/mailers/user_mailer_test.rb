@@ -5,9 +5,10 @@ class UserMailerTest < ActionMailer::TestCase
     user = users(:paul)
     mail = UserMailer.account_activation(user)
     assert_equal "Account activation", mail.subject
-    assert_equal ["to@example.org"], mail.to
+    assert_equal [user.email], mail.to
     assert_equal ["noreply@Spotyfi.com"], mail.from
-    assert_match user.activation_token,   mail.body.encoded
+    puts user.activation_token
+    assert_match user.activation_token,   mail.text_part.body.encoded
     assert_match CGI.escape(user.email),  mail.body.encoded
   end
 
