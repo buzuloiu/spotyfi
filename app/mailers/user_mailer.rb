@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
 
   def account_activation(user)
     @user = user
-    mail to: user.email, subject: "Account activation"
+    mail to: user.email, from: "noreply@spotyfi.com", subject: "Account activation"
   end
 
 
@@ -20,6 +20,6 @@ class UserMailer < ApplicationMailer
   def password_reset
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "to@example.org", from: "noreply@spotyfi.com"
   end
 end
