@@ -1,0 +1,13 @@
+<h1>trntable</h1>
+
+<p>
+  Mom! Someone signed up for my website!
+</p>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+  Welcome to trntable! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user) %>

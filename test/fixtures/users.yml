@@ -4,14 +4,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+#one: {}
   #name: John
   #email: john@example.com
   #password: password
   #password_confirmation: password
 # column: value
 #
-two: {}
+#two: {}
 # column: value
 
 paul:
@@ -19,11 +19,15 @@ paul:
   email: test@musical.io
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 steve:
   name: Steve Random
   email: why@youcare.com
   password_digest: <%= User.digest('password')%>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 
 <% 30.times do |n| %>
@@ -31,4 +35,6 @@ user_<%= n %>:
   name:  <%= "User #{n}" %>
   email: <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
