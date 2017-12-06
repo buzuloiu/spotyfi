@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'static_pages/help'
   get 'static_pages/about'
   get 'static_pages/contact'
@@ -7,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :songs, :users
   resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+
 
   root to: 'sessions#new'
   #root to: 'songs#list'
