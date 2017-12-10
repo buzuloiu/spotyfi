@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
+
 User.create!(name:  "Paul Test",
              email: "paul@spotyfi.io",
              password:              "password",
