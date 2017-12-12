@@ -10,20 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204044350) do
+ActiveRecord::Schema.define(version: 20171212015834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "songs", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "artist_id", null: false
-    t.integer "album_id", null: false
-    t.bigint "plays"
-    t.integer "genre_id", null: false
-    t.text "file", null: false
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "artist"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +48,5 @@ ActiveRecord::Schema.define(version: 20171204044350) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "microposts", "users"
 end
