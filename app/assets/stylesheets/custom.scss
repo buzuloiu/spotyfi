@@ -281,34 +281,15 @@ audio{
 
 }
 
+
 .songs {
   list-style: none;
   padding: 0;
+
   li {
-    padding-top: 15px;
-    padding-bottom: 30px;
+    padding-top: 1%;
+    padding-bottom: 1%;
     border-top: 1px solid #a1a1a1;
   }
-  span{
-    float: left;
-    width: 25%;
-  }
-  .title {
-    //margin-top: 5em;
-    //padding-top: 0;
-  }
-  .button {
-    //display: block;
-    //margin-left: 60px;
-    vertical-align: top !important;
-  }
-  .artist {
-    color: $gray-light;
-    display: block;
-    //margin-left: 60px;
-  }
-  .options_menu{
-    padding: 0 !important;
-    border-top: none !important;
-  }
+
 }

@@ -1,9 +1,10 @@
-  <li id="song-<%= song.id%>">
-      <span id="button"><%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %></span>
-      <span id="title"><%= song.title %></span>
-      <span id="artist"><%= link_to song.artist %></span>
 
-      <span id="options"><b class="dropdown">
+  <li id="song-<%= song.id%>" class="row">
+      <div id="button" class="col-xs-3"><%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %></div>
+      <div id="title" class="col-xs-3"><%= song.title %></div>
+      <div id="artist" class="col-xs-3"><%= link_to song.artist %></div>
+
+      <div id="options" class="col-xs-3 dropdown">
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
           options <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -15,6 +16,6 @@
             <li class="options_menu"><%= link_to "Add to my music", current_user %></li>
           </li>
         </ul>
-      </b>
-    </span>
+
+    </div>
   </li>
