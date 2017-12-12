@@ -1,21 +1,18 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
+  before_action :admin_user,     only: [:edit, :destroy, :create, :new, :update]
 
   # GET /songs
   # GET /songs.json
   def index
-    s3 = Aws::S3::Resource.new(region: ENV['AWS_REGION'])
-    song_bucket = s3.bucket(ENV['SONG_BUCKET_NAME'])
+    #s3 = Aws::S3::Resource.new(region: ENV['AWS_REGION'])
+    #song_bucket = s3.bucket(ENV['SONG_BUCKET_NAME'])
     #@songs = song_bucket.objects.collect(&:public_url)
+    #@songs = Song.paginate(page: params[:page])
+    #@songs = song_bucket.objects
+
     @songs = Song.paginate(page: params[:page])
-    #@songs = song_bucket.objects
-
-
-
-
-    #@songs = song_bucket.objects
-    #@song = s3.bucket(ENV['SONG_BUCKET_NAME']).object(1)
-
 
   end
 
@@ -36,19 +33,19 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    puts params.fetch(:song, {})
+    #puts params.fetch(:song, {})
 
-    uploader = SongUploader.new
-    file = params[:file]
-    uploader.store!(file)
-    puts "params are:"
-    puts song_params
-    puts file
-    puts params.fetch(:song, {})
+    #uploader = SongUploader.new
+    #file = params[:file]
+    #uploader.store!(file)
+    #puts "params are:"
+    #puts song_params
+    #puts file
+    #puts params.fetch(:song, {})
 
     @song = Song.new(song_params)
-    @song.plays = 0
-    @song.file= file.url
+    #@song.plays = 0
+    #@song.file= file.url
     respond_to do |format|
       if @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
@@ -94,7 +91,18 @@ class SongsController < ApplicationController
     def song_params
       params.fetch(:song, {})
       #params.require(:songs).permit(:title, :artist_id, :genre_id, :album_id, :file)
+    end
 
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    def admin_user
+      redirect_to root_url unless current_user.admin?
     end
 
     def download_url_for

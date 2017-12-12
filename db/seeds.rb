@@ -8,7 +8,6 @@
 
 
 
-
 User.create!(name:  "Paul Test",
              email: "paul@spotyfi.io",
              password:              "password",
@@ -31,7 +30,22 @@ User.create!(name:  "Paul Test",
 end
 
 users = User.order(:created_at).take(6)
-50.times do
+
+
+50.times do |n|
   content = Faker::FamilyGuy.quote
   users.each { |user| user.microposts.create!(content: content) }
+end
+
+Song.create!(
+              title: "Flush",
+              url: "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3")
+
+
+
+99.times do |n|
+  name  = Faker::BossaNova.song #=> "Chega de Saudade"
+  url = "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3"
+  Song.create!(title:  name,
+               url: url)
 end

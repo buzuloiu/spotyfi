@@ -22,7 +22,7 @@ $(document).ready(function() {
     $('a.play_song').click(function() {
 
         var audio = $('<audio>', {
-              autoPlay : 'autoplay',
+             //autoPlay : 'autoplay',
              controls : 'controls'
         });
 

@@ -1,4 +1,18 @@
   <li>
-      <%= song.key %>
-      <%= link_to "Play", song.public_url(), :class => "play_song btn btn-sm btn-primary" %>]
+      <%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %>
+      <%= song.title %>
+
+      <b class="dropdown">
+        <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
+          options <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Go to artist page", edit_user_path(current_user) %></li>
+          <li><%= link_to "Go to album page", edit_user_path(current_user) %></li>
+
+          <li class="divider"></li>
+          <li>
+            <li><%= link_to "Add to my music", current_user %></li>
+          </li>
+        </ul>
+      </b>
   </li>

@@ -26,11 +26,7 @@ ActiveRecord::Schema.define(version: 20171208013622) do
 
   create_table "songs", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "artist_id", null: false
-    t.integer "album_id", null: false
-    t.bigint "plays"
-    t.integer "genre_id", null: false
-    t.text "file", null: false
+    t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

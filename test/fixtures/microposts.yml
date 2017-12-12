@@ -3,32 +3,22 @@
 orange:
   content: "I just ate an orange!"
   created_at: <%= 10.minutes.ago %>
-<<<<<<< HEAD
   user: paul
-=======
->>>>>>> 8fe17393e5d5db813558e63b37ea9c312629ead6
 
 tau_manifesto:
   content: "Check out the @tauday site by @mhartl: http://tauday.com"
   created_at: <%= 3.years.ago %>
-<<<<<<< HEAD
   user: paul
 
-=======
->>>>>>> 8fe17393e5d5db813558e63b37ea9c312629ead6
 
 cat_video:
   content: "Sad cats are sad: http://youtu.be/PKffm2uI4dk"
   created_at: <%= 2.hours.ago %>
-<<<<<<< HEAD
   user: paul
-=======
->>>>>>> 8fe17393e5d5db813558e63b37ea9c312629ead6
 
 most_recent:
   content: "Writing a short test"
   created_at: <%= Time.zone.now %>
-<<<<<<< HEAD
   user: paul
 
 
@@ -38,5 +28,3 @@ micropost_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: paul
 <% end %>
-=======
->>>>>>> 8fe17393e5d5db813558e63b37ea9c312629ead6
