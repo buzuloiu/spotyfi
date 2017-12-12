@@ -4,10 +4,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-#sidebar {
-   width: 30%;
-   float: right;
-}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -31,4 +28,9 @@ a:hover {
 }
 td {
    padding: 5px;
+}
+
+.player{
+  padding: 20px;
+  background-color: black;
 }

@@ -1,18 +1,20 @@
-  <li>
-      <%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %>
-      <%= song.title %>
+  <li id="song-<%= song.id%>">
+      <span id="button"><%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %></span>
+      <span id="title"><%= song.title %></span>
+      <span id="artist"><%= link_to song.artist %></span>
 
-      <b class="dropdown">
+      <span id="options"><b class="dropdown">
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
           options <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><%= link_to "Go to artist page", edit_user_path(current_user) %></li>
-          <li><%= link_to "Go to album page", edit_user_path(current_user) %></li>
+          <li class="options_menu"><%= link_to "Go to artist page", edit_user_path(current_user) %></li>
+          <li class="options_menu"><%= link_to "Go to album page", edit_user_path(current_user) %></li>
 
-          <li class="divider"></li>
-          <li>
-            <li><%= link_to "Add to my music", current_user %></li>
+          <li class="divider options_menu"></li>
+          <li class="options_menu">
+            <li class="options_menu"><%= link_to "Add to my music", current_user %></li>
           </li>
         </ul>
       </b>
+    </span>
   </li>

@@ -38,7 +38,8 @@ users = User.order(:created_at).take(6)
 end
 
 Song.create!(
-              title: "Flush",
+              title: "A Song For Her",
+              artist: "Golde",
               url: "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3")
 
 
@@ -46,6 +47,8 @@ Song.create!(
 99.times do |n|
   name  = Faker::BossaNova.song #=> "Chega de Saudade"
   url = "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3"
+  artist =  Faker::Name.name 
   Song.create!(title:  name,
-               url: url)
+               url: url,
+               artist: artist)
 end
