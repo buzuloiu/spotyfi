@@ -4,15 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
 # column: value
 valid:
   title: "test"
-  artist_id: 1
-  album_id: 1
-  plays: 1
-  genre_id: 1
-  file: "afile"
+  url: "Iamasong.com/song.mp3"
+  artist: "golde"
+
+valid2:
+  title: "test2"
+  url: "Iamasong.com/song.mp3"
+  artist: "qwerty"
