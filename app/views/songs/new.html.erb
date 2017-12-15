@@ -1,14 +1,30 @@
-<h1>New Song</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
-<%= form_tag :action => 'create' do %>
-<p><label for = "song_title">Title</label>:
-<%= text_field 'song', 'title' %></p>
 
-<p><label for = "song_url">File</label><br/>
-<%= file_field 'song', :file %></p>
+<
+  <h1>New Song</h1>
 
-<%= submit_tag "Create" %>
+  <%= form_for (@song) do |f| %>
 
-<% end -%>
 
-<%= link_to 'Back', songs_path %>
+
+  <%= f.label :title%>
+  <%= f.text_field :title,  class: 'form-control'%>
+
+  <%= f.label :artist%>
+  <%= f.text_field :artist,  class: 'form-control'%>
+
+  <p><label for = "file">File</label><br/>
+  <%= file_field 'file', :file %></p>
+
+
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+
+  <% end -%>
+
+  <%= link_to 'cancel', songs_path %>
+
+  </div>
+</div>

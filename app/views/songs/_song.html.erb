@@ -4,6 +4,11 @@
       <div id="title" class="col-xs-3"><%= song.title %></div>
       <div id="artist" class="col-xs-3"><%= link_to song.artist %></div>
 
+      <% if current_user.admin? && !current_user?(user) %>
+        | <%= link_to "new", user, method: :new,
+                                      data: { confirm: "You sure?" } %>
+      <% end %>
+
       <div id="options" class="col-xs-3 dropdown">
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
           options <b class="caret"></b></a>

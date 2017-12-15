@@ -11,7 +11,6 @@ class SongsController < ApplicationController
     #@songs = song_bucket.objects.collect(&:public_url)
     #@songs = Song.paginate(page: params[:page])
     #@songs = song_bucket.objects
-
     @songs = Song.paginate(page: params[:page])
 
   end
@@ -42,9 +41,19 @@ class SongsController < ApplicationController
     #puts song_params
     #puts file
     #puts params.fetch(:song, {})
+    puts "___file is:________"
+    puts upload_params[:file]
+
+    params[:url] = "www.hello.com"
+
+    uploader = SongUploader.new
+    uploader.store!(upload_params[:file])
 
     @song = Song.new(song_params)
-    #@song.plays = 0
+
+
+
+    #puts @song.plays
     #@song.file= file.url
     respond_to do |format|
       if @song.save
@@ -82,15 +91,20 @@ class SongsController < ApplicationController
   end
 
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       @song = Song.find(params[:id])
     end
 
+    def upload_params
+      params.require(:file).permit(:file)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.fetch(:song, {})
-      #params.require(:songs).permit(:title, :artist_id, :genre_id, :album_id, :file)
+      #params.fetch(:song, {})
+      params.require(:song).permit(:title, :artist, :file)
     end
 
     def logged_in_user

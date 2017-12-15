@@ -9,7 +9,7 @@ class SongsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     log_in_as(@user)
-    get songs_url
+    get songs_url 
     assert_response :success
   end
 
