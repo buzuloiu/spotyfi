@@ -10,10 +10,7 @@
 
 <h1>Songs</h1>
 
-<% if current_user.admin? && !current_user?(user) %>
-  | <%= link_to "new", song, method: :new,
-                                data: { confirm: "You sure?" } %>
-<% end %>
+
 
 <%= will_paginate %>
 

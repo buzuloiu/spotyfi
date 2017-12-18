@@ -42,15 +42,17 @@ class SongsController < ApplicationController
     #puts file
     #puts params.fetch(:song, {})
     puts "___file is:________"
-    puts upload_params[:file]
-
-    params[:url] = "www.hello.com"
-
-    uploader = SongUploader.new
-    uploader.store!(upload_params[:file])
+    puts song_params[:url]
+    puts name = song_params["url"].original_filename
+    puts "___________________"
 
     @song = Song.new(song_params)
 
+    uploader = SongUploader.new
+    uploader.store!(song_params[:url])
+
+
+    @song.url =  uploader.download_url(name)
 
 
     #puts @song.plays
@@ -104,7 +106,7 @@ class SongsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
       #params.fetch(:song, {})
-      params.require(:song).permit(:title, :artist, :file)
+      params.require(:song).permit(:title, :artist, :url)
     end
 
     def logged_in_user

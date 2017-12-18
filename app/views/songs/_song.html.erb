@@ -4,10 +4,7 @@
       <div id="title" class="col-xs-3"><%= song.title %></div>
       <div id="artist" class="col-xs-3"><%= link_to song.artist %></div>
 
-      <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "new", user, method: :new,
-                                      data: { confirm: "You sure?" } %>
-      <% end %>
+
 
       <div id="options" class="col-xs-3 dropdown">
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
@@ -19,6 +16,10 @@
           <li class="divider options_menu"></li>
           <li class="options_menu">
             <li class="options_menu"><%= link_to "Add to my music", current_user %></li>
+            <% if current_user.admin?%>
+              | <li class="options_menu"> <%= link_to "delete", song, method: :delete,
+                                            data: { confirm: "You sure?" } %></li>
+            <% end %>
           </li>
         </ul>
 

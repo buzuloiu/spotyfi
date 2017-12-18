@@ -15,9 +15,8 @@
   <%= f.label :artist%>
   <%= f.text_field :artist,  class: 'form-control'%>
 
-  <p><label for = "file">File</label><br/>
-  <%= file_field 'file', :file %></p>
-
+  <%= f.label "File" %>
+  <%= f.file_field :url %>
 
 
   <%= f.submit "Create", class: "btn btn-primary" %>
