@@ -1,5 +1,5 @@
 class Song < ApplicationRecord
-  mount_uploader :song, SongUploader
+  mount_uploader :url, SongUploader
   validates :title, presence:true, length:{maximum: 50}
   validates :url, presence:true
 
