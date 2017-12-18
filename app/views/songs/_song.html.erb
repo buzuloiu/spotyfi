@@ -17,8 +17,10 @@
           <li class="options_menu">
             <li class="options_menu"><%= link_to "Add to my music", current_user %></li>
             <% if current_user.admin?%>
-              | <li class="options_menu"> <%= link_to "delete", song, method: :delete,
+              <li class="options_menu"> <%= link_to "delete", song, method: :delete,
                                             data: { confirm: "You sure?" } %></li>
+              <li class="options_menu"> <%= link_to "edit", edit_song_path(song.id)%></li>
+
             <% end %>
           </li>
         </ul>

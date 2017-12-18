@@ -32,31 +32,16 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    #puts params.fetch(:song, {})
 
-    #uploader = SongUploader.new
-    #file = params[:file]
-    #uploader.store!(file)
-    #puts "params are:"
-    #puts song_params
-    #puts file
-    #puts params.fetch(:song, {})
-    puts "___file is:________"
-    puts song_params[:url]
-    puts name = song_params["url"].original_filename
-    puts "___________________"
+    name = song_params["url"].original_filename
 
     @song = Song.new(song_params)
 
     uploader = SongUploader.new
     uploader.store!(song_params[:url])
 
-
     @song.url =  uploader.download_url(name)
 
-
-    #puts @song.plays
-    #@song.file= file.url
     respond_to do |format|
       if @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
@@ -87,7 +72,8 @@ class SongsController < ApplicationController
   def destroy
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
+      format.html { redirect_to songs_url,
+                    flash[:success] = "Song successfully deleted!"}
       format.json { head :no_content }
     end
   end
