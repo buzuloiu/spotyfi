@@ -4,14 +4,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-# column: value
-valid:
-  title: test
-  artist_id: 1
-  url: Iamasong.com/song.mp3
+one:
+  name: Golde
 
-
-valid2:
-  title: "test2"
-  url: "Iamasong.com/song.mp3"
-  artist_id: 2
+two:
+  name: Simple Plan

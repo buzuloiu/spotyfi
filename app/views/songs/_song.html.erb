@@ -2,7 +2,7 @@
   <li id="song-<%= song.id%>" class="row">
       <div id="button" class="col-xs-3"><%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %></div>
       <div id="title" class="col-xs-3"><%= song.title %></div>
-      <div id="artist" class="col-xs-3"><%= link_to song.artist %></div>
+      <div id="artist" class="col-xs-3"><%= link_to Artist.find(song.artist_id).name, Artist.find(song.artist_id) %></div>
 
 
 
@@ -10,7 +10,7 @@
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
           options <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li class="options_menu"><%= link_to "Go to artist page", edit_user_path(current_user) %></li>
+          <li class="options_menu"><%= link_to "Go to artist page", artist_url(Artist.find(song.artist_id)) %></li>
           <li class="options_menu"><%= link_to "Go to album page", edit_user_path(current_user) %></li>
 
           <li class="divider options_menu"></li>
