@@ -27,6 +27,7 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    @song = Song.find(params[:id])
   end
 
   # POST /songs
@@ -56,14 +57,12 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
   def update
-    respond_to do |format|
-      if @song.update(song_params)
-        format.html { redirect_to @song, notice: 'Song was successfully updated.' }
-        format.json { render :show, status: :ok, location: @song }
-      else
-        format.html { render :edit }
-        format.json { render json: @song.errors, status: :unprocessable_entity }
-      end
+    @song = Song.find(params[:id])
+    if @song.update_attributes(song_params)
+      flash[:success] = "Song Successfully Updated!"
+      redirect_to @song
+    else
+      render 'edit'
     end
   end
 
@@ -72,8 +71,7 @@ class SongsController < ApplicationController
   def destroy
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to songs_url,
-                    flash[:success] = "Song successfully deleted!"}
+      format.html { redirect_to songs_url, flash[:success] = "Song successfully deleted!"}
       format.json { head :no_content }
     end
   end

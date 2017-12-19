@@ -12,8 +12,10 @@ class SongTest < ActiveSupport::TestCase
      assert @song.valid?
    end
 
-   test "song should have name" do
-     @song.title = "    "
+   test "song should have title" do
+     puts @song.title
+     @song.title = ""
+     puts @song.title
      assert_not @song.valid?
    end
 end

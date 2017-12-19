@@ -6,9 +6,10 @@
 #
 # column: value
 valid:
-  title: "test"
-  url: "Iamasong.com/song.mp3"
-  artist: "golde"
+  title: test
+  artist: golde
+  url: Iamasong.com/song.mp3
+
 
 valid2:
   title: "test2"
