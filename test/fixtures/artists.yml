@@ -6,6 +6,8 @@
 #
 one:
   name: Golde
+  id: 1
 
 two:
   name: Simple Plan
+  id: 2

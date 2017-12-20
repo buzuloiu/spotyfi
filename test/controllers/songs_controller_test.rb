@@ -19,14 +19,6 @@ class SongsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create song" do
-    log_in_as(@user)
-    assert_difference('Song.count') do
-      post songs_url, params: { song: {  } }
-    end
-
-    assert_redirected_to song_url(Song.last)
-  end
 
   test "should show song" do
     log_in_as(@user)
@@ -38,12 +30,6 @@ class SongsControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get edit_song_url(@song)
     assert_response :success
-  end
-
-  test "should update song" do
-    log_in_as(@user)
-    patch song_url(@song), params: { song: {  } }
-    assert_redirected_to song_url(@song)
   end
 
   test "should destroy song" do

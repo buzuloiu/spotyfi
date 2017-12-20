@@ -60,9 +60,8 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     if @song.update_attributes(song_params)
       flash[:success] = "Song Successfully Updated!"
-      redirect_to @song
     else
-      render 'edit'
+      render 'edit'        
     end
   end
 
@@ -71,7 +70,8 @@ class SongsController < ApplicationController
   def destroy
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to songs_url, flash[:success] = "Song successfully deleted!"}
+      format.html { redirect_to songs_url}
+      flash[:success] = "Song successfully deleted!"
       format.json { head :no_content }
     end
   end
@@ -90,7 +90,7 @@ class SongsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
       #params.fetch(:song, {})
-      params.require(:song).permit(:title, :artist, :url)
+      params.require(:song).permit(:title, :artist_id, :url)
     end
 
     def logged_in_user

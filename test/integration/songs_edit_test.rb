@@ -14,13 +14,12 @@ class SongsEditTest < ActionDispatch::IntegrationTest
 
 
   test "unsuccessful song edit" do
-    log_in_as(@non_admin)
+    log_in_as(@admin)
     get edit_song_path(@song)
     assert_template 'songs/edit'
-    patch song_path(@song), params: { song: { title:  "  ",
-                                              artist: "  ",
-                                              url: "test.com/song.mp3" } }
-    puts @song.url
+    patch song_path(@song), params: { song: { title:  "",
+                                              artist_id:"",
+                                               } }
     assert_template 'songs/edit'
   end
 
