@@ -1,0 +1,8 @@
+<li>
+  <%= gravatar artist, size: 50 %>
+  <%= link_to artist.name, artist %>
+  <% if current_user.admin? %>
+    | <%= link_to "delete", artist, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

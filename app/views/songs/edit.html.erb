@@ -1,6 +1,14 @@
-<h1>Editing Song</h1>
+<% provide(:title, "Edit Song") %>
+<% provide(:button_text, 'Update Song')%>
 
-<%= render 'form', song: @song %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
-<%= link_to 'Show', @song %> |
-<%= link_to 'Back', songs_path %>
+    <h1>Editing Song</h1>
+
+    <%= render 'form', song: @song %>
+
+    <%= link_to 'Back', songs_path %>
+
+  </div>
+</div>

@@ -37,18 +37,16 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.microposts.create!(content: content) }
 end
 
-Song.create!(
-              title: "A Song For Her",
-              artist: "Golde",
-              url: "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3")
 
+20.times do |x|
+  artist_name =  Faker::Name.name
+  artist = Artist.create!(name: artist_name)
 
-
-99.times do |n|
-  name  = Faker::BossaNova.song #=> "Chega de Saudade"
-  url = "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3"
-  artist =  Faker::Name.name 
-  Song.create!(title:  name,
-               url: url,
-               artist: artist)
+  10.times do |n|
+    name  = Faker::BossaNova.song #=> "Chega de Saudade"
+    url = "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3"
+    Song.create!(title:  name,
+                 url: url,
+                 artist_id: artist.id)
+  end
 end

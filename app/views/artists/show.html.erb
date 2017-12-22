@@ -1,0 +1,20 @@
+<% provide(:title, @artist.name ) %>
+<div class= "row">
+  <aside class = "col-md-4">
+    <section class = "row">
+      <h1>
+        <%= gravatar(@artist)%>
+        <%= @artist.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @artist.songs.any? %>
+      <h3>songs (<%= @artist.songs.count %>)</h3>
+      <ol class="songs">
+        <%= render @songs %>
+      </ol>
+      <%= will_paginate @songs %>
+    <% end %>
+  </div>
+</div>

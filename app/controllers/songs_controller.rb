@@ -11,7 +11,6 @@ class SongsController < ApplicationController
     #@songs = song_bucket.objects.collect(&:public_url)
     #@songs = Song.paginate(page: params[:page])
     #@songs = song_bucket.objects
-
     @songs = Song.paginate(page: params[:page])
 
   end
@@ -28,24 +27,22 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    @song = Song.find(params[:id])
   end
 
   # POST /songs
   # POST /songs.json
   def create
-    #puts params.fetch(:song, {})
 
-    #uploader = SongUploader.new
-    #file = params[:file]
-    #uploader.store!(file)
-    #puts "params are:"
-    #puts song_params
-    #puts file
-    #puts params.fetch(:song, {})
+    name = song_params["url"].original_filename
 
     @song = Song.new(song_params)
-    #@song.plays = 0
-    #@song.file= file.url
+
+    uploader = SongUploader.new
+    uploader.store!(song_params[:url])
+
+    @song.url =  uploader.download_url(name)
+
     respond_to do |format|
       if @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
@@ -60,14 +57,11 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
   def update
-    respond_to do |format|
-      if @song.update(song_params)
-        format.html { redirect_to @song, notice: 'Song was successfully updated.' }
-        format.json { render :show, status: :ok, location: @song }
-      else
-        format.html { render :edit }
-        format.json { render json: @song.errors, status: :unprocessable_entity }
-      end
+    @song = Song.find(params[:id])
+    if @song.update_attributes(song_params)
+      flash[:success] = "Song Successfully Updated!"
+    else
+      render 'edit'        
     end
   end
 
@@ -76,21 +70,27 @@ class SongsController < ApplicationController
   def destroy
     @song.destroy
     respond_to do |format|
-      format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }
+      format.html { redirect_to songs_url}
+      flash[:success] = "Song successfully deleted!"
       format.json { head :no_content }
     end
   end
 
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       @song = Song.find(params[:id])
     end
 
+    def upload_params
+      params.require(:file).permit(:file)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.fetch(:song, {})
-      #params.require(:songs).permit(:title, :artist_id, :genre_id, :album_id, :file)
+      #params.fetch(:song, {})
+      params.require(:song).permit(:title, :artist_id, :url)
     end
 
     def logged_in_user

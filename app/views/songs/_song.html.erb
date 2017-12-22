@@ -2,18 +2,26 @@
   <li id="song-<%= song.id%>" class="row">
       <div id="button" class="col-xs-3"><%= link_to "Play", song.url, :class => "play_song btn btn-sm btn-primary" %></div>
       <div id="title" class="col-xs-3"><%= song.title %></div>
-      <div id="artist" class="col-xs-3"><%= link_to song.artist %></div>
+      <div id="artist" class="col-xs-3"><%= link_to Artist.find(song.artist_id).name, Artist.find(song.artist_id) %></div>
+
+
 
       <div id="options" class="col-xs-3 dropdown">
         <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" id="dropdownMenuLink">
           options <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li class="options_menu"><%= link_to "Go to artist page", edit_user_path(current_user) %></li>
+          <li class="options_menu"><%= link_to "Go to artist page", artist_url(Artist.find(song.artist_id)) %></li>
           <li class="options_menu"><%= link_to "Go to album page", edit_user_path(current_user) %></li>
 
           <li class="divider options_menu"></li>
           <li class="options_menu">
             <li class="options_menu"><%= link_to "Add to my music", current_user %></li>
+            <% if current_user.admin?%>
+              <li class="options_menu"> <%= link_to "delete", song, method: :delete,
+                                            data: { confirm: "You sure?" } %></li>
+              <li class="options_menu"> <%= link_to "edit", edit_song_path(song.id)%></li>
+
+            <% end %>
           </li>
         </ul>
 

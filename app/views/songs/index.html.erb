@@ -10,6 +10,12 @@
 
 <h1>Songs</h1>
 
+  <% if current_user.admin?%>
+    <%= link_to "Add new Song", new_song_url %>
+  <% end %>
+
+
+
 <%= will_paginate %>
 
 <ul class="songs">
