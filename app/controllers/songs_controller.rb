@@ -33,7 +33,6 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-
     name = song_params["url"].original_filename
 
     @song = Song.new(song_params)
@@ -42,6 +41,12 @@ class SongsController < ApplicationController
     uploader.store!(song_params[:url])
 
     @song.url =  uploader.download_url(name)
+
+    if Artist.exists?(name: params["song"]["artist_id"])
+      @song.artist_id = Artist.find_by(name: params["song"]["artist_id"]).id
+    else
+      render 'edit'
+    end
 
     respond_to do |format|
       if @song.save
@@ -61,7 +66,7 @@ class SongsController < ApplicationController
     if @song.update_attributes(song_params)
       flash[:success] = "Song Successfully Updated!"
     else
-      render 'edit'        
+      render 'edit'
     end
   end
 
