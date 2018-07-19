@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.1'
+ruby '2.5.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -9,7 +9,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #use aws-sdk for accessing S3 and CDN
-gem 'aws-sdk', '~> 3'
+gem "aws-sdk-s3"
 #use figaro for environment variables
 gem 'figaro'
 # Use Capistrano for deployment
@@ -56,6 +56,8 @@ gem 'faker'
 gem 'will_paginate'
 
 gem 'bootstrap-will_paginate'
+
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
