@@ -52,19 +52,17 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
-    host = 'spotyfi.herokuapp.com'
-    config.action_mailer.default_url_options = { host: host }
     ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.mailgun.net',
-      :port           => '587',
-      :authentication => :plain,
+      :port           => ENV['MAILGUN_SMTP_PORT'],
+      :address        => ENV['MAILGUN_SMTP_SERVER'],
       :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-      :password       => ENV['MAILGUN_SMTP_LOGINPASSWORD'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
+      :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+      :domain         => ENV['MAILGUN_DOMAIN'],
+      :authentication => :plain,
+      :from => 'pbuzu025@uottawa.ca'
     }
+    ActionMailer::Base.delivery_method = :smtp
 
-  
 
 
 

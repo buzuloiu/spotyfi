@@ -1,4 +1,4 @@
-class UserMailer < ApplicationMailer
+class UserMailer < ActionMailer::Base
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -6,9 +6,12 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.account_activation.subject
   #
 
+  MAIL_DOMAIN = ENV['MAILGUN_DOMAIN']
+
   def account_activation(user)
     @user = user
-    mail to: user.email, from: "noreply@spotyfi.com", subject: "Account activation"
+    email = "pbuzu025@uottawa.ca"
+    mail to: email, from: "pbuzu025@uottawa.ca", subject: "Account activation"
   end
 
 
@@ -19,6 +22,6 @@ class UserMailer < ApplicationMailer
   #
   def password_reset(user)
     @user = user
-    mail to: user.email, subject: "Password reset"
+    mail to: user.email, from: "pbuzu025@uottawa.ca", subject: "Password reset"
   end
 end
