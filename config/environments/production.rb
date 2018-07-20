@@ -51,7 +51,7 @@ Rails.application.configure do
 
 
   config.action_mailer.raise_delivery_errors = true
-    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.delivery_method = :http
     host = 'spotyfi.herokuapp.com'
     config.action_mailer.default_url_options = { host: host }
     ActionMailer::Base.smtp_settings = {
@@ -64,7 +64,7 @@ Rails.application.configure do
       :enable_starttls_auto => true
     }
 
-  
+
 
 
 
