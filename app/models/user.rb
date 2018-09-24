@@ -46,6 +46,12 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  def activation_url?(attribute,token)
+    digest = send("#{attribute}_digest")
+    byebug
+    return false if digest.nil?
+    return digest == token
+  end
 
   def create_reset_digest
     self.reset_token = User.new_token
@@ -67,8 +73,8 @@ class User < ApplicationRecord
 
 
     def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
+      self.activation_token = User.new_token
+      self.activation_digest = self.activation_token
     end
 
     def downcase_email

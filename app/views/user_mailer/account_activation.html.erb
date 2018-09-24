@@ -7,7 +7,6 @@
   Welcome to Spotyfi! Click on the link below to activate your account:
 </p>
 
-<%= link_to "Activate", activate_user_url(@user.activation_token,
-                                                    id: @user.id) %>
+<%= link_to "Activate", activate_user_url(@user, { activation_token: @user.activation_token }) %>
 
 <p>The Spotyfi team</p>

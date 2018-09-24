@@ -51,8 +51,9 @@ class UsersController < ApplicationController
   end
 
   def activate
-    user = User.find_by(email: params[:email])
-    if user && !user.activated? && user.authenticated?(:activation, params[:id])
+    byebug
+    user = User.find(params[:id])
+    if user && !user.activated? && user.activation_url?(:activation, params[:activation_token])
       user.activate
       log_in user
       flash[:success] = "Account activated!"
