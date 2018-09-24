@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   get 'sessions/new'
 
-  resources :songs, :users, :artists
+  resources :songs, :artists, :users
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   get 'users/new'
   get 'users/show'
+  get 'users/activate'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
