@@ -51,7 +51,6 @@ class UsersController < ApplicationController
   end
 
   def activate
-    byebug
     user = User.find(params[:id])
     if user && !user.activated? && user.activation_url?(:activation, params[:activation_token])
       user.activate

@@ -49,7 +49,7 @@ Rails.application.configure do
 
 
 
-
+  config.action_mailer.default_url_options = { :host => "spotyfi.herokuapp.com" }
   config.action_mailer.raise_delivery_errors = true
     config.action_mailer.delivery_method = :smtp
     ActionMailer::Base.smtp_settings = {
@@ -59,7 +59,7 @@ Rails.application.configure do
       :password       => ENV['MAILGUN_SMTP_PASSWORD'],
       :domain         => ENV['MAILGUN_DOMAIN'],
       :authentication => :plain,
-      :from => 'pbuzu025@uottawa.ca'
+      :from => 'paul@spotyfi.io'
     }
     ActionMailer::Base.delivery_method = :smtp
 
