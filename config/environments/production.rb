@@ -59,7 +59,7 @@ Rails.application.configure do
       :password       => ENV['MAILGUN_SMTP_PASSWORD'],
       :domain         => ENV['MAILGUN_DOMAIN'],
       :authentication => :plain,
-      :from => 'pbuzu025@uottawa.ca'
+      :from => 'paul@spotyfi.io'
     }
     ActionMailer::Base.delivery_method = :smtp
 

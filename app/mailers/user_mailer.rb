@@ -10,8 +10,8 @@ class UserMailer < ActionMailer::Base
 
   def account_activation(user)
     @user = user
-    email = "pbuzu025@uottawa.ca"
-    mail to: email, from: "pbuzu025@uottawa.ca", subject: "Account activation"
+    email = @user.email
+    mail to: email, from: "paul@spotyfi.io", subject: "Account activation"
   end
 
 
@@ -22,6 +22,6 @@ class UserMailer < ActionMailer::Base
   #
   def password_reset(user)
     @user = user
-    mail to: user.email, from: "pbuzu025@uottawa.ca", subject: "Password reset"
+    mail to: user.email, from: "paul@spotyfi.io", subject: "Password reset"
   end
 end
