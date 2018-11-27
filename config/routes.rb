@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get 'song/delete'
   get 'song/update'
   get 'book/show_subjects'
-  get 'songs/all', to: 'song#index'
+  get 'songs/all', to: 'song#index
 
 
   get 'users/new'

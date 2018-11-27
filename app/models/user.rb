@@ -48,7 +48,6 @@ class User < ApplicationRecord
 
   def activation_url?(attribute,token)
     digest = send("#{attribute}_digest")
-    byebug
     return false if digest.nil?
     return digest == token
   end
