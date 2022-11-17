@@ -6,24 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
-User.create!(name:  "Paul Test",
-             email: "paul@spotyfi.io",
-             password:              "password",
-             password_confirmation: "password",
+User.create!(name: 'Paul Test',
+             email: 'paul@spotyfi.io',
+             password: 'password',
+             password_confirmation: 'password',
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
-
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@spotyfi.io"
-  password = "password"
-  User.create!(name:  name,
+  email = "example-#{n + 1}@spotyfi.io"
+  password = 'password'
+  User.create!(name: name,
                email: email,
-               password:              password,
+               password: password,
                password_confirmation: password,
                activated: true,
                activated_at: Time.zone.now)
@@ -31,22 +28,18 @@ end
 
 users = User.order(:created_at).take(6)
 
-
-50.times do |n|
-  content = Faker::FamilyGuy.quote
+50.times do |_n|
+  content = Faker::TvShows::FamilyGuy.quote
   users.each { |user| user.microposts.create!(content: content) }
 end
 
-
-20.times do |x|
-  artist_name =  Faker::Name.name
+20.times do |_x|
+  artist_name = Faker::Name.name
   artist = Artist.create!(name: artist_name)
 
-  10.times do |n|
-    name  = Faker::BossaNova.song #=> "Chega de Saudade"
-    url = "https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3"
-    Song.create!(title:  name,
-                 url: url,
-                 artist_id: artist.id)
+  10.times do |_n|
+    name = Faker::BossaNova.song #=> "Chega de Saudade"
+    url = 'https://s3.amazonaws.com/spotyfimusic/A_Song_For_Her.mp3'
+    Song.create!(title: name, url: url, artist_id: artist.id)
   end
 end
